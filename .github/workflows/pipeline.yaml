@@ -3,7 +3,7 @@ name: Check Code
 on:
   push:
     branches:
-      - '**'
+      - master
   pull_request:
     branches:
 
