@@ -1,25 +1,28 @@
-name: Check Code
+name: Check Code Style
 
 on:
   push:
     branches:
-      - master
+      - 'master'
   pull_request:
     branches:
-
+      - 'master'
 jobs:
   checkcode:
     runs-on: ubuntu-latest
     steps:
       - name: Clone repo
-        uses: actions/checkout
-      - name: Check py version
+        uses: actions/checkout@v2
+
+      - name: Check python version
         uses: actions/setup-python
         with:
-          python-version: '3.11.5'
+          python-versions: '3.11.5'
+
       - name: Install dependencies
         run: |
           pip install pycodestyle
+
       - name: Run linter
         run: |
           pycodestyle .
